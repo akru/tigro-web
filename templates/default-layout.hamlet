@@ -1,4 +1,6 @@
 $maybe msg <- mmsg
     <div #message>#{msg}
 
+<a href=@{DashboardR}>Dahsboard
+
 ^{widget}

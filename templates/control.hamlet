@@ -1,0 +1,4 @@
+_{MsgHello} #{userIdent user}
+
+<h3 id="robot-name" style="color:grey">#{robotName robot}
+

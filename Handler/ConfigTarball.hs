@@ -17,8 +17,9 @@ getConfigTarballR robotId = do
     let anchor = T.unpack $ robotAnchor robot
         tarball = archiveDirectory ++ anchor ++ ".tgz"
 
-    if robotOwner robot == userId 
-        then do
+    if robotOwner robot /= userId
+        then
+            permissionDenied "Access denied"
+        else do
             _ <- liftIO $ system $ buildArchive ++ " " ++ anchor
-            sendFile typeOctet $ tarball
-        else permissionDenied "Access denied"
+            sendFile "appclication/x-tar" $ tarball

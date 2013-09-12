@@ -11,18 +11,17 @@ Robot
     plugins Text Maybe
     wsport Int Maybe
     wsauth Text Maybe
-    UniqueAnchor anchor
     deriving Show
 
 Node
     name Text
     address Text
-    UniqueName name
 
 Container
     robot RobotId
     node NodeId Maybe
     address Text Maybe
+    UniqueContainerRobot robot
 
 NewContainer
     link ContainerId
