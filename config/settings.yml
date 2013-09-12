@@ -1,0 +1,19 @@
+Default: &defaults
+  host: "*" # any IPv4 host
+  port: 3000
+  approot: "http://tigro.akru.me:3000"
+  copyright: T.I.G.R.O. 
+  #analytics: UA-YOURCODE
+
+Development:
+  <<: *defaults
+
+Testing:
+  <<: *defaults
+
+Staging:
+  <<: *defaults
+
+Production:
+  #approot: "http://www.example.com"
+  <<: *defaults

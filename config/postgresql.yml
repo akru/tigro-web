@@ -1,0 +1,24 @@
+Default: &defaults
+  user: akru 
+  password: akru 
+  host: localhost
+  port: 5432
+  database: tigro
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+#  database: tigro_test
+  <<: *defaults
+
+Staging:
+  database: tigro_staging
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: tigro_production
+  poolsize: 100
+  <<: *defaults

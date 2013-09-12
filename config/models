@@ -1,0 +1,39 @@
+User
+    ident Text
+    password Text Maybe
+    UniqueUser ident
+    deriving Typeable
+
+Robot
+    name Text
+    anchor Text 
+    owner UserId
+    plugins Text Maybe
+    wsport Int Maybe
+    wsauth Text Maybe
+    UniqueAnchor anchor
+    deriving Show
+
+Node
+    name Text
+    address Text
+    UniqueName name
+
+Container
+    robot RobotId
+    node NodeId Maybe
+    address Text Maybe
+
+NewContainer
+    link ContainerId
+
+Connection
+    container ContainerId
+    node NodeId
+    since String Maybe
+    vaddress String Maybe
+    raddress String Maybe
+    sent Int Maybe
+    received Int Maybe
+
+ -- By default this file is used in Model.hs (which is imported by Foundation.hs)

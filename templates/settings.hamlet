@@ -1,0 +1,4 @@
+_{MsgHello} #{userIdent user}
+
+<p>
+    <a href=@{ConfigTarballR robotId}>Get OpenVPN config tarball

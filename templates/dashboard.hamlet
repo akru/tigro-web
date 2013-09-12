@@ -1,0 +1,10 @@
+_{MsgHello} #{userIdent user}
+<form action=@{AddRobotR} method="POST" enctype=#{enctype}>
+    ^{addRobotWidget}
+    <input type="submit" value="_{MsgRobotCreate}">
+
+<ul>
+    $forall Entity robotId robot <- robots
+        <li>
+            <a href=@{SettingsR robotId}>#{robotName robot}
+            <a href=@{DeleteRobotR robotId}>X
