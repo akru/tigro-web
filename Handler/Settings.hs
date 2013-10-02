@@ -13,5 +13,6 @@ getSettingsR robotId = do
             permissionDenied "Access denied"
         else do
             defaultLayout $ do
+                addStylesheet $ StaticR css_button_css
                 setTitle "Settings"
                 $(widgetFile "settings")

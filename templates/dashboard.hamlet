@@ -1,12 +1,31 @@
-_{MsgHello} #{userIdent user}
-<a href=@{AuthR LogoutR}>_{MsgLogout}
-<form action=@{AddRobotR} method="POST" enctype=#{enctype}>
-    ^{addRobotWidget}
-    <input type="submit" value="_{MsgRobotCreate}">
+<div id="menu">
 
-<ul>
-    $forall Entity robotId robot <- robots
-        <li>
-            <a href=@{ControlR robotId}>#{robotName robot}
-            <a href=@{SettingsR robotId}>_{MsgSettings}
-            <a href=@{DeleteRobotR robotId}>X
+    <div id="loginWidget">
+        #{userIdent user}
+        <a href=@{AuthR LogoutR}>_{MsgLogout}
+
+    <span>
+        <a href=@{HomeR}>Project
+    <span>
+        <a href=@{DashboardR}>Dahsboard
+    <span>
+        <a href=@{AccountR}>Account
+
+<div id="appendRobotWidget" title="_{MsgCreateRobotHead}">
+    <form action=@{AddRobotR} method="POST" enctype=#{enctype}>
+        ^{addRobotWidget}
+
+<button id="append" class="medium color green button">_{MsgAppend}
+<h3>_{MsgAvaliableRobotsHead}
+
+<ul id="robotsWidget">
+    $case robots
+        $of []
+            <li class="empty">_{MsgRobotsWidgetEmpty}
+        $of _
+            $forall Entity robotId robot <- robots
+                <li>
+                    <a href=@{DeleteRobotR robotId} class="medium color red button">_{MsgRemove}
+                    <a href=@{SettingsR robotId} class="medium color blue button">_{MsgSettings}
+                    <a href=@{ControlR robotId}>
+                        <div>#{robotName robot}

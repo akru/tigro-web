@@ -1,2 +1,10 @@
-<h1>_{MsgHello}
+<div id="menu">
+    <span>
+        <a href=@{HomeR}>Project
+    <span>
+        <a href=@{DashboardR}>Dahsboard
+    <span>
+        <a href=@{AccountR}>Account
 
+<h3>_{MsgHello}
+<center style="padding: 50px">Dasboard avaliable for tests!

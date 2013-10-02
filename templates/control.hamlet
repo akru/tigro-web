@@ -1,4 +1,17 @@
-_{MsgHello} #{userIdent user}
+<div id="menu">
 
-<h3 id="robot-name" style="color:grey">#{robotName robot}
+    <div id="loginWidget">
+        #{userIdent user}
+        <a href=@{AuthR LogoutR}>_{MsgLogout}
 
+    <span>
+        <a href=@{HomeR}>Project
+    <span>
+        <a href=@{DashboardR}>Dahsboard
+    <span>
+        <a href=@{AccountR}>Account
+
+<div id="robotName">#{robotName robot}
+<div id="nav">
+<canvas id="camera" height="480" width="640">
+    Your browser does not support Canvas!

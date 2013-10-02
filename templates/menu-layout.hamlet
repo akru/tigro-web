@@ -1,0 +1,9 @@
+<div class="menu">
+
+    <div class="loginWidget">
+        #{userIdent user}
+        <a href=@{AuthR LogoutR}>_{MsgLogout}
+
+    <a href=@{HomeR}>Project
+    <a href=@{DashboardR}>Dahsboard
+    <a href=@{AccountR}>Account

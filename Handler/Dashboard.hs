@@ -19,5 +19,9 @@ getDashboardR = do
     (addRobotWidget, enctype) <- generateFormPost addRobotForm
     defaultLayout $ do
         setTitle "Dashboard"
+        addStylesheet $ StaticR css_button_css
+        addStylesheetRemote "//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"
+        addScriptRemote "//code.jquery.com/jquery-1.9.1.js"
+        addScriptRemote "//code.jquery.com/ui/1.10.3/jquery-ui.js"
         $(widgetFile "dashboard")
 

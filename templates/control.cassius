@@ -1,0 +1,24 @@
+#menu
+    position: fixed
+    top: 0
+    right: 0
+    background: #FEFEFE
+    border: 1px solid #CCC
+    border-radius: 5px
+
+#nav
+    z-index: 10
+    position: fixed
+    right: 15px
+    bottom: 15px
+    border: 1px solid #CCC
+
+body, html
+    height: 100%
+    background: black
+    background-repeat: no-repeat
+    background-position: center
+    background-size: auto 100%
+
+.footer
+    display: none

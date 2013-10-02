@@ -1,4 +1,15 @@
-_{MsgHello} #{userIdent user}
+<div id="menu">
 
-<p>
-    <a href=@{ConfigTarballR robotId}>Get OpenVPN config tarball
+    <div id="loginWidget">
+        #{userIdent user}
+        <a href=@{AuthR LogoutR}>_{MsgLogout}
+
+    <span>
+        <a href=@{HomeR}>Project
+    <span>
+        <a href=@{DashboardR}>Dahsboard
+    <span>
+        <a href=@{AccountR}>Account
+
+<center style="padding: 50px">
+    <a href=@{ConfigTarballR robotId} class="large color green button">Get OpenVPN config tarball

@@ -28,7 +28,11 @@ getControlR robotId = do
             defaultLayout $ do
                 setTitle "Control"
                 addScriptRemote "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+                addScriptRemote "//cdn.robotwebtools.org/EaselJS/current/easeljs.min.js"
                 addScriptRemote "//cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"
                 addScriptRemote "//cdn.robotwebtools.org/roslibjs/current/roslib.min.js"
+                addScriptRemote "//cdn.robotwebtools.org/keyboardteleopjs/current/keyboardteleop.min.js"
+                addScriptRemote "//cdn.robotwebtools.org/ros2djs/current/ros2d.min.js"
+                addScript $ StaticR js_nav2d_js
                 $(widgetFile "control")
                 rosConnect robot node

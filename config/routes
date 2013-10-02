@@ -1,14 +1,14 @@
 /static StaticR Static getStatic
 /auth   AuthR   Auth   getAuth
 
-/favicon.ico        FaviconR    GET
-/robots.txt         RobotsR     GET
+/favicon.ico                    FaviconR        GET
+/robots.txt                     RobotsR         GET
 
-/                   HomeR       GET
-/dashboard          DashboardR  GET
-/settings/#RobotId  SettingsR   GET 
-/control/#RobotId   ControlR    GET
-/account            AccountR    GET
-/add                AddRobotR   POST
-/delete/#RobotId    DeleteRobotR GET 
-/config/#RobotId ConfigTarballR GET
+/                               HomeR           GET
+/dashboard                      DashboardR      GET
+/settings/#RobotId              SettingsR       GET
+/control/#RobotId               ControlR        GET
+/account                        AccountR        GET
+/add                            AddRobotR       POST
+/delete/#RobotId                DeleteRobotR    GET
+/config/#RobotId/config.tgz     ConfigTarballR  GET
