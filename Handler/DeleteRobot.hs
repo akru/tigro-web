@@ -7,11 +7,10 @@ getDeleteRobotR robotId = do
     userId <- requireAuthId
     robot <- runDB $ get404 robotId
 
-    if robotOwner robot /= userId
-        then
-            permissionDenied "Access denied"
-        else
-            runDB $ do
-                deleteWhere [ContainerRobot ==. robotId]
-                delete robotId
+    when (robotOwner robot /= userId)
+        $ permissionDenied "Access denied"
+    
+    runDB $ do
+        deleteWhere [ContainerRobot ==. robotId]
+        delete robotId
     redirect DashboardR

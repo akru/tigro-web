@@ -4,9 +4,11 @@ import Import
 import System.Cmd
 import qualified Data.Text as T
 
+-- TODO: Read this settings from config file
 archiveDirectory :: String
 archiveDirectory = "/home/akru/easy-rsa/archive/"
 
+-- TODO: Read this settings from config file
 buildArchive :: String
 buildArchive = "/home/akru/easy-rsa/build-config"
 

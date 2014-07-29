@@ -3,10 +3,18 @@ module Handler.AddRobot where
 import Import
 import System.Random
 import System.IO.Unsafe
-import Handler.Dashboard
 import qualified Data.Text as T
 
+-- Robot name
+data Name = Name Text
+
+-- Add robot monadic form
+addRobotForm :: Form Name 
+addRobotForm = renderBootstrap $ Name
+    <$> areq textField "" Nothing
+
 -- Robot anchor len
+-- TODO: Read this settings from config file
 anchorLen :: Int
 anchorLen = 8
 
@@ -19,7 +27,7 @@ addRobot :: UserId -> Name -> Handler RobotId
 addRobot userId (Name name) = runDB $ do
     robotId <- insert $ 
         let anchor = T.pack (unsafePerformIO genAnchor)
-            in Robot name anchor userId Nothing Nothing Nothing 
+            in Robot name anchor userId Nothing Nothing
     contId <- insert $ Container robotId Nothing Nothing
     _ <- insert $ NewContainer contId
     return robotId

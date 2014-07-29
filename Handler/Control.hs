@@ -1,16 +1,22 @@
 module Handler.Control where
 
 import Import
-import Control.Monad
-import qualified Data.Text as T
+import Plugin.Basics.Desc
+
+-- TODO: Read this settings from config file
+connectProtocol :: String
+connectProtocol = "ws"
 
 rosConnect :: Robot -> Node -> Widget
 rosConnect robot node =
     toWidget [julius|
+        var ros = new ROSLIB.Ros();
         var host = #{toJSON $ nodeAddress node};
         var port = #{toJSON $ robotWsport robot};
-        ros.connect('ws://' + host + ':' + port);|]
+        var proto = #{toJSON $ connectProtocol};
+        ros.connect(proto + '://' + host + ':' + port);|]
 
+-- Control page handler
 getControlR :: RobotId -> Handler Html
 getControlR robotId = do
     userId <- requireAuthId
@@ -20,6 +26,10 @@ getControlR robotId = do
     node <- case containerNode cont of
         Nothing -> notFound
         Just nodeId -> runDB $ get404 $ nodeId
+    
+    plugList <- runDB $ selectList [PluginRobot ==. robotId] []
+    let p2widget = \(Entity _ plugin) -> renderBasics (pluginType plugin) (pluginParams plugin)
+    pluginWidgets <- return $ map p2widget plugList
 
     if robotOwner robot /= userId
         then
@@ -34,5 +44,6 @@ getControlR robotId = do
                 addScriptRemote "//cdn.robotwebtools.org/keyboardteleopjs/current/keyboardteleop.min.js"
                 addScriptRemote "//cdn.robotwebtools.org/ros2djs/current/ros2d.min.js"
                 addScript $ StaticR js_nav2d_js
-                $(widgetFile "control")
+                addScript $ StaticR js_fullscreenify_js
                 rosConnect robot node
+                $(widgetFile "control")

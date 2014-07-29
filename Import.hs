@@ -7,6 +7,7 @@ import           Prelude              as Import hiding (head, init, last,
 import           Yesod                as Import hiding (Route (..))
 import           Yesod.Auth           as Import
 
+import           Control.Monad        as Import (when)
 import           Control.Applicative  as Import (pure, (<$>), (<*>))
 import           Data.Text            as Import (Text)
 

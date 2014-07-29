@@ -1,0 +1,17 @@
+$(function(){
+});
+
+function editPlugin(uri, title) {
+    $.ajax({
+        url: uri
+    }).done(function (data){
+        var dialog = document.createElement("div");
+        dialog.innerHTML = $("#main", $(data)).html();
+        $(dialog).dialog({
+            modal: true,
+            resizable: false,
+            title: title,
+            close: function() { $(this).dialog("destroy"); }
+        });
+    });
+}

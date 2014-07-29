@@ -19,6 +19,11 @@ library
                      Settings
                      Settings.StaticFiles
                      Settings.Development
+                     Plugin.Core
+                     Plugin.Basics.Desc
+                     Plugin.Basics.ImageView
+                     Plugin.Basics.KeyboardTeleop
+                     Plugin.Basics.Navigation
                      Handler.Home
                      Handler.Dashboard
                      Handler.Settings
@@ -27,6 +32,9 @@ library
                      Handler.AddRobot
                      Handler.DeleteRobot
                      Handler.ConfigTarball
+                     Handler.AddPlugin
+                     Handler.DeletePlugin
+                     Handler.EditPlugin
 
     if flag(dev) || flag(library-only)
         cpp-options:   -DDEVELOPMENT
@@ -73,12 +81,14 @@ library
                  , directory                     >= 1.1        && < 1.3
                  , warp                          >= 1.3        && < 1.4
                  , data-default
-                 , aeson
+                 , aeson                         >= 0.6.1
                  , conduit                       >= 1.0
                  , monad-logger                  >= 0.3
                  , fast-logger                   >= 0.3
                  , random                        >= 1.0.1
                  , process                       >= 1.1.0.1
+                 , string-conversions            >= 0.2
+                 , ghc-prim
 
 executable         tigro
     if flag(library-only)

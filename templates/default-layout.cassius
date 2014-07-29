@@ -47,3 +47,54 @@ a:hover
 
 .container
     padding: 25px
+
+.listWidget
+    border: 1px dotted #DDD
+    list-style-type: none
+    margin: 5px 25px 35px 25px
+    padding: 0
+    clear: right
+    background: #FEFEFE
+
+.listWidget li
+    border-bottom: 1px dotted #DDD
+
+.listWidget li:last-child
+    border-bottom: none
+
+.listWidget li:hover
+    background: #F2F2F2
+
+.listWidget div
+    padding: 15px 25px 
+
+.listWidget .button
+    margin: 8px
+    float: right
+
+.listWidget .empty
+    color: #DDD
+    text-align: center
+    font-size: 30pt
+    font-style: bold
+    padding: 70px
+
+.listWidget .empty:hover
+    background: inherit
+
+.appendWidget
+    text-align: right
+
+.appendWidget select, input
+    margin: 5px
+
+.appendWidget input[type="submit"]
+    margin: 8px 35px 8px 8px
+    float: right
+
+.appendWidget form
+    padding: 0
+    margin: 25px 0 0 0
+
+.listHead
+    float: left

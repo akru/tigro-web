@@ -1,0 +1,37 @@
+ros.on('connection', function() {
+    var c = document.getElementById(#{toJSON camera});
+    if (#{toJSON $ getFullscreen params})
+        fullscreenify(c);
+    else
+        resize(c, #{toJSON $ getWidth params}, #{toJSON $ getHeight params});
+
+    var rosTopic = new ROSLIB.Topic({
+        ros : ros,
+        name : #{toJSON $ getTopic params},
+        messageType : 'sensor_msgs/CompressedImage'
+    });
+
+    var image = new Image();
+    var frames = 0;
+    var fps = 0;
+
+    // FPS counter
+    setInterval(function(){fps = frames, frames = 0;}, 1000);
+
+    rosTopic.subscribe(function(msg) {
+        //  console.log(msg.format);
+        //  rosTopic.unsubscribe();
+        var ctx = c.getContext("2d");
+        var serialImage = 'data:image/jpg;base64,' + msg.data;
+        image.src = serialImage;
+        image.onload = function(){
+            ctx.drawImage(image, 0, 0, image.width, image.height);
+            ctx.font = '22pt Arial';
+            ctx.fillStyle = 'red';
+            ctx.fillText('FPS: ' + fps, 10, 25);
+            frames += 1;
+        };
+        //  console.log(serialImage);
+    });
+    console.log("ImageView initialized");
+});

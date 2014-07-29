@@ -1,10 +1,23 @@
 #menu
+    z-index: 10
     position: fixed
     top: 0
     right: 0
     background: #FEFEFE
     border: 1px solid #CCC
     border-radius: 5px
+
+#robotName
+    z-index: 10
+    position: fixed
+    top: 0
+    left: 0
+    margin: 5px
+    padding: 5px 15px
+    background: #FEFEFE
+    border: 1px solid #CCC
+    border-radius: 5px
+    font-weight: bold
 
 #nav
     z-index: 10
@@ -14,11 +27,18 @@
     border: 1px solid #CCC
 
 body, html
+    margin: 0
+    padding: 0
     height: 100%
     background: black
     background-repeat: no-repeat
     background-position: center
     background-size: auto 100%
+
+.container
+    width: 100%
+    padding: 0
+    margin: 0
 
 .footer
     display: none

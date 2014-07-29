@@ -1,0 +1,8 @@
+#{map_view}
+    position: fixed
+    right: 15px
+    bottom: 25px
+    width: 300px
+    height: 200px
+    z-index: 1000
+    outline: 1px solid #777

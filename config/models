@@ -8,7 +8,6 @@ Robot
     name Text
     anchor Text 
     owner UserId
-    plugins Text Maybe
     wsport Int Maybe
     wsauth Text Maybe
     deriving Show
@@ -35,4 +34,7 @@ Connection
     sent Int Maybe
     received Int Maybe
 
- -- By default this file is used in Model.hs (which is imported by Foundation.hs)
+Plugin
+    robot RobotId
+    type Text
+    params Text

@@ -11,5 +11,26 @@
     <span>
         <a href=@{AccountR}>Account
 
-<center style="padding: 50px">
-    <a href=@{ConfigTarballR robotId} class="large color green button">Get OpenVPN config tarball
+<h3>_{MsgRobotSettings}: #{robotName robot}
+
+<div id="getConfig">
+    <a href=@{ConfigTarballR robotId} class="medium color green button">Get OpenVPN config tarball
+
+<h3 class="listHead">_{MsgEnabledPluginsHead}
+<div class="appendWidget">
+    <form action=@{AddPluginR robotId} enctype=#{enctype} method="POST">
+        <input type="submit" class="medium color green button" value=_{MsgAppend}>
+        ^{addPluginWidget}
+
+<ul class="listWidget">
+    $case plugins
+        $of []
+            <li class="empty">_{MsgPluginsWidgetEmpty}
+        $of _
+            $forall Entity pluginId plugin <- plugins
+                <li>
+                    <a href=@{DeletePluginR pluginId} class="medium color red button">_{MsgRemove}
+                    <a onClick="editPlugin('@{EditPluginR pluginId}', '#{pluginType plugin}')" class="medium color blue button">
+                        _{MsgSettings}
+                    <a href=#>
+                        <div>#{pluginType plugin}

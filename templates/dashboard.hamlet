@@ -12,13 +12,14 @@
         <a href=@{AccountR}>Account
 
 <div id="appendRobotWidget" title="_{MsgCreateRobotHead}">
+
+<h3 class="listHead">_{MsgAvaliableRobotsHead}
+<div class="appendWidget">
     <form action=@{AddRobotR} method="POST" enctype=#{enctype}>
+        <input type="submit" class="medium color green button" value=_{MsgAppend}>
         ^{addRobotWidget}
 
-<button id="append" class="medium color green button">_{MsgAppend}
-<h3>_{MsgAvaliableRobotsHead}
-
-<ul id="robotsWidget">
+<ul class="listWidget">
     $case robots
         $of []
             <li class="empty">_{MsgRobotsWidgetEmpty}

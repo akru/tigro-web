@@ -12,6 +12,6 @@
         <a href=@{AccountR}>Account
 
 <div id="robotName">#{robotName robot}
-<div id="nav">
-<canvas id="camera" height="480" width="640">
-    Your browser does not support Canvas!
+
+$forall p <- pluginWidgets
+    ^{p}

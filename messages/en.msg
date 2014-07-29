@@ -7,4 +7,7 @@ AvaliableRobotsHead: Avaliable robots
 Settings: Settings
 Remove: Remove
 Logout: Logout
-RobotsWidgetEmpty: No robots avaliable
+RobotsWidgetEmpty: No avaliable robots
+RobotSettings: Robot settings
+EnabledPluginsHead: Enabled plugins
+PluginsWidgetEmpty: No enabled plugins

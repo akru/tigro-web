@@ -1,0 +1,17 @@
+ros.on('connection', function() {
+    // Create the main viewer.
+    var viewer = new ROS2D.Viewer({
+        divID : #{toJSON $ map_view},
+        width : 300,
+        height : 200
+    });
+
+    // Setup the nav client.
+    var nav = new NAV2D.OccupancyGridClientNav({
+        ros : ros,
+        rootObject : viewer.scene,
+        viewer : viewer,
+        serverName : #{toJSON $ getTopic params}
+    });
+    console.log("Navigation initialized");
+});
